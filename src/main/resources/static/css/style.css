@@ -1,0 +1,9 @@
+/* CSS */
+
+.table thead th {
+    border-bottom: none !Important;
+}
+
+body{
+	padding: 2rem;
+}

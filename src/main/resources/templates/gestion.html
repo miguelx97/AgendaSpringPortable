@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Gestion</title>
+<div th:replace="imports"></div>
+</head>
+<body>
+<div class="container">
+	<h3>Contacto</h3>
+	<form action="#" th:action="@{/agenda/addEdit}" th:object="${contacto}" method="post">
+		<div class="form-group">
+			<!-- <label>Id:</label> --> 	<input type="text" th:field="*{id}" class="form-control" hidden></input><br/>
+			<label>Nombre:</label><input type="text" th:field="*{nombre}" class="form-control"></input>
+			<label>Apellidos:</label> 	<input type="text" th:field="*{apellidos}" class="form-control"></input><br/>
+			<label>Telefono:</label><input type="tel" th:field="*{telefono}" class="form-control"></input>
+			<label>Correo:</label> 	<input type="email" th:field="*{correo}" class="form-control"></input><br/>
+			<label>Empresa:</label><input type="text" th:field="*{empresa}" class="form-control"></input>
+
+			<div class="row">
+				<div class="col-6">
+					<a href="#" class="btn btn-lg btn-default mt-4" th:href="@{/agenda/show}">
+						<span aria-hidden="true">Volver</span>
+					</a>
+				</div>
+				<div class="col-6 text-right">
+					<button class="btn btn-lg btn-primary mt-4" type="submit">
+						<span class="glyphicon glyphicon-ok" aria-hidden="true">Aceptar</span> 
+					</button>
+				</div>
+			</div>
+			
+		</div>
+	</form>
+</div>
+
+</body>
+</html>

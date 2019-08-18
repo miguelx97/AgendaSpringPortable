@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Mi Agenda</title>
+<div th:replace="imports"></div>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-6"><h3>Mi Agenda</h3></div>
+			<div class="col-6 text-right"><a href="#" th:href="@{/agenda/salir}">Salir</a></div>
+		</div>
+		
+
+			<table class="table">
+				<thead>
+					<tr>
+						<!-- <th>Id</th> -->
+						<th>Nombre</th>
+						<th>Apellidos</th>
+						<th>Telefono</th>
+						<th>Correo</th>
+						<th>Empresa</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="contacto : ${contactos}">
+						<!-- <td th:text="${contacto.id}">Id</td> -->
+						<td th:text="${contacto.nombre}">Nombre</td>
+						<td th:text="${contacto.apellidos}">Apellidos</td>
+						<td th:text="${contacto.telefono}">Telefono</td>
+						<td th:text="${contacto.correo}">Correo</td>
+						<td th:text="${contacto.empresa}">Empresa</td>
+						<td><a href="#"
+							th:href="@{/agenda/gestion?id=__${contacto.id}__}">
+								<button type="button" class="btn btn-default">
+									<i class="far fa-edit"></i>
+								</button>
+						</a> 
+						<a href="#"
+							th:href="@{/agenda/remove?id=__${contacto.id}__}">
+								<button type="button" class="btn btn-danger">
+									<i class="far fa-trash-alt"></i>
+								</button>
+						</a></td> 
+		
+		
+					</tr>
+				</tbody>
+			</table>
+			<div class="text-center">
+				<a href="#" th:href="@{/agenda/gestion?id=0}">
+					<button class="btn btn-lg btn-primary" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Nuevo</button>
+				</a>
+			</div>
+			
+		<br>
+	</div>
+	
+
+</body>
+</html>
