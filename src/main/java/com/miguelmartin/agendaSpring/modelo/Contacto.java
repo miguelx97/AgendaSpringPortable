@@ -1,4 +1,4 @@
-package com.miguelmartin.proyectoBase.modelo;
+package com.miguelmartin.agendaSpring.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

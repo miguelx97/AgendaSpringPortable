@@ -1,4 +1,4 @@
-package com.miguelmartin.proyectoBase.controller;
+package com.miguelmartin.agendaSpring.controller;
 
 import java.util.Optional;
 
@@ -14,31 +14,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.miguelmartin.proyectoBase.modelo.Contacto;
-import com.miguelmartin.proyectoBase.persistencia.Servicios;
+import com.miguelmartin.agendaSpring.ProyectoApplication;
+import com.miguelmartin.agendaSpring.constantes.Consts;
+import com.miguelmartin.agendaSpring.modelo.Contacto;
+import com.miguelmartin.agendaSpring.persistencia.Servicios;
 
 @Controller
-@RequestMapping("/agenda")
 public class AgendaControlador {
 
-	private static final Log LOG = LogFactory.getLog(new Object() { }.getClass().getEnclosingClass());
+	private static final Log LOG = LogFactory.getLog(new Object(){}.getClass().getEnclosingClass());
 	
 	@Autowired
     private Servicios servicios;
 	
-	@GetMapping("/show")
+	@GetMapping("/mis-contactos")
 	public ModelAndView show() {
 		log(new Object(){});
-		ModelAndView mav = new ModelAndView("show");
+		ModelAndView mav = new ModelAndView(Consts.show);
 		
 		mav.addObject("contactos", servicios.findAll());
 		return mav;
 	}
 	
-	@GetMapping("/gestion")
+	@GetMapping("/formulario-contacto")
 	public ModelAndView irGestion(@RequestParam(name="id", required=false) int id) {
 		log(new Object(){}, id);
-		ModelAndView nav = new ModelAndView("gestion");
+		ModelAndView nav = new ModelAndView(Consts.form);
 		Optional<Contacto> contacto = null;
 		if(id != 0) {
 			contacto = servicios.findById(id);
@@ -60,24 +61,24 @@ public class AgendaControlador {
 			model.addAttribute("result", 0);
 		}
 		
-		return "redirect:/agenda/show";
+		return Consts.redirectShow;
 	}
 	
 	@GetMapping("/remove")
 	private String remove(@RequestParam(name="id", required=true) int id) {
 		log(new Object(){}, id);
 		servicios.deleteById(id);
-		return "redirect:/agenda/show";
+		return Consts.redirectShow;
 	}
 	
 	@GetMapping("/salir")
 	public void salir() {
 		log(new Object(){});
-		System.exit(0);
+		ProyectoApplication.salir();
 	}
 	
 	private static void log(Object object) {
-		log(new Object(){}, null);
+		log(object, null);
 	}
 	
 	private static void log(Object object, Object param) {

@@ -8,7 +8,7 @@
 <body>
 <div class="container">
 	<h3>Contacto</h3>
-	<form action="#" th:action="@{/agenda/addEdit}" th:object="${contacto}" method="post">
+	<form action="#" th:action="@{/addEdit}" th:object="${contacto}" method="post">
 		<div class="form-group">
 			<!-- <label>Id:</label> --> 	<input type="text" th:field="*{id}" class="form-control" hidden></input><br/>
 			<label>Nombre:</label><input type="text" th:field="*{nombre}" class="form-control"></input>
@@ -19,7 +19,7 @@
 
 			<div class="row">
 				<div class="col-6">
-					<a href="#" class="btn btn-lg btn-default mt-4" th:href="@{/agenda/show}">
+					<a href="#" class="btn btn-lg btn-default mt-4" th:href="@{/mis-contactos}">
 						<span aria-hidden="true">Volver</span>
 					</a>
 				</div>

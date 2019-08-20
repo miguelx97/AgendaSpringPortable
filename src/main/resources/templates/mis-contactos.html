@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-6"><h3>Mi Agenda</h3></div>
-			<div class="col-6 text-right"><a href="#" th:href="@{/agenda/salir}">Salir</a></div>
+			<div class="col-6 text-right"><a href="#" th:href="@{/salir}">Salir</a></div>
 		</div>
 		
 
@@ -33,13 +33,13 @@
 						<td th:text="${contacto.correo}">Correo</td>
 						<td th:text="${contacto.empresa}">Empresa</td>
 						<td><a href="#"
-							th:href="@{/agenda/gestion?id=__${contacto.id}__}">
+							th:href="@{/formulario-contacto?id=__${contacto.id}__}">
 								<button type="button" class="btn btn-default">
 									<i class="far fa-edit"></i>
 								</button>
 						</a> 
 						<a href="#"
-							th:href="@{/agenda/remove?id=__${contacto.id}__}">
+							th:href="@{/remove?id=__${contacto.id}__}">
 								<button type="button" class="btn btn-danger">
 									<i class="far fa-trash-alt"></i>
 								</button>
@@ -50,7 +50,7 @@
 				</tbody>
 			</table>
 			<div class="text-center">
-				<a href="#" th:href="@{/agenda/gestion?id=0}">
+				<a href="#" th:href="@{/formulario-contacto?id=0}">
 					<button class="btn btn-lg btn-primary" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Nuevo</button>
 				</a>
 			</div>

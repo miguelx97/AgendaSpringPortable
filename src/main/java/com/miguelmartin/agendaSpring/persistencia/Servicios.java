@@ -1,8 +1,8 @@
-package com.miguelmartin.proyectoBase.persistencia;
+package com.miguelmartin.agendaSpring.persistencia;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.miguelmartin.proyectoBase.modelo.Contacto;
+import com.miguelmartin.agendaSpring.modelo.Contacto;
 
 public interface Servicios extends JpaRepository<Contacto, Integer>{
 }
